@@ -1,32 +1,37 @@
-app = "tech-thalyson-com"
-primary_region = "gru"
-kill_signal = "SIGTERM"
-kill_timeout = "10s"
+# fly.toml app configuration file generated for tech-thalyson-com on 2026-09-28T16:20:44-03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'tech-thalyson-com'
+primary_region = 'gru'
+kill_signal = 'SIGTERM'
+kill_timeout = '10s'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [env]
-  NODE_ENV = "production"
-  PORT = "8080"
-  HOST = "0.0.0.0"
-  PUBLIC_HOST = "tech.thalyson.com"
+  HOST = '0.0.0.0'
+  NODE_ENV = 'production'
+  PORT = '8080'
+  PUBLIC_HOST = 'tech.thalyson.com'
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 1
 
   [[http_service.checks]]
-    grace_period = "10s"
-    interval = "30s"
-    method = "GET"
-    timeout = "5s"
-    path = "/healthz"
+    interval = '30s'
+    timeout = '5s'
+    grace_period = '10s'
+    method = 'GET'
+    path = '/healthz'
 
 [[vm]]
-  cpu_kind = "shared"
+  memory = '256mb'
   cpus = 1
-  memory = "256mb"
+  memory_mb = 256

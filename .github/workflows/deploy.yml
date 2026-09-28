@@ -12,18 +12,19 @@ permissions:
 
 jobs:
   validate:
-    name: Build and test
+    name: Validate image
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: '22'
-      - run: npm run build
-      - run: npm test
-      - name: Validate production image
+      - name: Build Docker image
         run: docker build --tag tw-tech:ci .
+      - name: Smoke-test health endpoint
+        run: |
+          docker run -d --name tw-ci -p 8080:8080 tw-tech:ci
+          sleep 2
+          curl -sf http://localhost:8080/healthz
+          docker rm -f tw-ci
 
   deploy:
     name: Deploy to Fly.io
@@ -43,10 +44,6 @@ jobs:
         with:
           version: '0.4.108'
       - name: Deploy
-        run: |
-          if [ -f .fly_token ]; then
-            export FLY_API_TOKEN=$(cat .fly_token)
-          fi
-          flyctl deploy --remote-only --ha=false
+        run: flyctl deploy --remote-only --ha=false
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

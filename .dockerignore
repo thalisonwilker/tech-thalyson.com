@@ -1,13 +1,11 @@
 *
 !Dockerfile
-!package.json
+!nginx.conf
 !index.html
 !styles.css
 !robots.txt
 !sitemap.xml
 !assets/
 !assets/**
-!scripts/
-!scripts/build.mjs
-!scripts/server.mjs
-!scripts/serve.mjs
+!data/
+!data/**

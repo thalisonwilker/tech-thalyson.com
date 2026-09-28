@@ -5,16 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101513">
   <meta name="description" content="tw.tech por Thalyson Wilker: encontros, palestras e vídeos sobre tecnologia. Da Amazônia para a comunidade, compartilhando conhecimento sobre Python e inteligência artificial.">
+  <meta name="author" content="Thalyson Wilker">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tech.thalyson.com/">
+  <meta property="og:title" content="tw.tech — Thalyson Wilker">
+  <meta property="og:description" content="Desenvolvedor, palestrante e parte da comunidade tech da Amazônia. Eventos, palestras e vídeos sobre Python e IA.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="tw.tech — Thalyson Wilker">
+  <meta name="twitter:description" content="Desenvolvedor, palestrante e parte da comunidade tech da Amazônia.">
   <title>tw.tech — Thalyson Wilker</title>
   <link rel="canonical" href="https://tech.thalyson.com/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thalyson Wilker",
+    "url": "https://tech.thalyson.com",
+    "sameAs": [
+      "https://github.com/thalisonwilker",
+      "https://linkedin.com/in/thalysonwilker",
+      "https://www.youtube.com/@pythoncomthalyson"
+    ],
+    "jobTitle": "Desenvolvedor de Software",
+    "description": "Desenvolvedor, palestrante e parte da comunidade tech da Amazônia.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Belém", "addressRegion": "PA", "addressCountry": "BR" }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="header container">
     <a class="brand" href="#inicio" aria-label="tw.tech, início">tw<span>.</span>tech</a>
-    <nav aria-label="Navegação principal"><a href="#eventos">Eventos</a><a href="#videos">Vídeos</a><a class="nav-social" href="https://github.com/thalisonwilker">GitHub <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Navegação principal">
+      <a href="#eventos">Eventos</a>
+      <a href="#videos">Vídeos</a>
+      <a class="nav-social" href="https://github.com/thalisonwilker" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
   </header>
   <main id="conteudo" class="container">
     <section class="intro" id="inicio" aria-labelledby="intro-title">
@@ -24,23 +54,90 @@
         <p class="description">Sou desenvolvedor, palestrante e parte da comunidade tech da Amazônia. Aqui reúno os eventos por onde passo e o que compartilho em vídeo.</p>
         <a class="text-link" href="#eventos">Conheça minha trajetória <span aria-hidden="true">↓</span></a>
       </div>
-      <figure class="portrait"><img src="assets/thalyson-evento.jpg" alt="Thalyson ao lado de um robô no Startup Summit" width="768" height="1024"><figcaption>Entre código, encontros e boas conversas.</figcaption></figure>
+      <figure class="portrait">
+        <img src="assets/thalyson-evento.jpg" alt="Thalyson ao lado de um robô no Startup Summit" width="768" height="1024" loading="eager">
+        <figcaption>Entre código, encontros e boas conversas.</figcaption>
+      </figure>
     </section>
+
     <section id="eventos" class="events section" aria-labelledby="events-title">
-      <div class="section-heading"><div><p class="eyebrow">01 / NA COMUNIDADE</p><h2 id="events-title">Fora do terminal</h2></div><p>Palestras, organização e encontros.<br>Conhecimento que a gente constrói junto.</p></div>
-      <div class="event-list">
-        <article class="event"><time datetime="2026-04-25">25 ABR <span>2026</span></time><div><span class="tag">Palestra</span><h3>IA com breja 2026</h3><p>Além do Chat: aplicando IA para acelerar o desenvolvimento de APIs REST com Django.</p><p class="location">Black Dog Pub · Belém, PA</p></div><span class="event-number" aria-hidden="true">01</span></article>
-        <article class="event"><time datetime="2026-04-25">25 ABR <span>2026</span></time><div><span class="tag">Palestra</span><h3>FLISOL 2026 · Belém</h3><p>Descubra o Langflow: construindo IA de forma simples e aberta.</p><p class="location">Faci Wyden · Belém, PA</p></div><span class="event-number" aria-hidden="true">02</span></article>
-        <article class="event"><time datetime="2025-07-20">20 JUL <span>2025</span></time><div><span class="tag">Organização</span><h3>Python Norte 2025</h3><p>A maior conferência de Python do Norte do Brasil.</p><p class="location">Unama Alcino Cacela · Belém, PA</p></div><span class="event-number" aria-hidden="true">03</span></article>
-        <article class="event"><time datetime="2025-06-07">07 JUN <span>2025</span></time><div><span class="tag">Organização</span><h3>DevOpsDays Belém 2025</h3><p>Um encontro da comunidade DevOps em Belém.</p><p class="location">Unama Alcino Cacela · Belém, PA</p></div><span class="event-number" aria-hidden="true">04</span></article>
-        <article class="event"><time datetime="2024-10-16">16 OUT <span>2024</span></time><div><span class="tag">Participação</span><h3>Python Brasil 2024</h3><p>Minha primeira participação na maior conferência de Python do Brasil.</p><p class="location">Edifício Bolsa do Rio · Rio de Janeiro, RJ</p></div><span class="event-number" aria-hidden="true">05</span></article>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / NA COMUNIDADE</p>
+          <h2 id="events-title">Fora do terminal</h2>
+        </div>
+        <p>Palestras, organização e encontros.<br>Conhecimento que a gente constrói junto.</p>
+      </div>
+      <div class="event-list" id="event-list" role="list">
+        <noscript>
+          <p style="color:var(--muted);padding:2rem 0">Habilite JavaScript para ver os eventos.</p>
+        </noscript>
       </div>
     </section>
+
     <section id="videos" class="section videos" aria-labelledby="videos-title">
-      <div class="section-heading"><div><p class="eyebrow">02 / COMPARTILHANDO O QUE APRENDO</p><h2 id="videos-title">Do código para o play.</h2></div></div>
-      <a class="channel" href="https://www.youtube.com/@pythoncomthalyson/videos"><div class="channel-art" aria-hidden="true"><span class="code-line">&gt;&gt;&gt; compartilhar()</span><span class="play">▶</span><span class="art-caption">PYTHON COM THALYSON</span></div><div class="channel-copy"><span class="eyebrow">NO YOUTUBE</span><h3>Python com Thalyson</h3><p>Um espaço para aprender e trocar ideias sobre tecnologia. Me acompanhe também por lá.</p><span class="text-link">Assistir aos vídeos <span aria-hidden="true">↗</span></span></div></a>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / COMPARTILHANDO O QUE APRENDO</p>
+          <h2 id="videos-title">Do código para o play.</h2>
+        </div>
+      </div>
+      <a class="channel" href="https://www.youtube.com/@pythoncomthalyson/videos" rel="noopener noreferrer" target="_blank">
+        <div class="channel-art" aria-hidden="true">
+          <span class="code-line">&gt;&gt;&gt; compartilhar()</span>
+          <span class="play">▶</span>
+          <span class="art-caption">PYTHON COM THALYSON</span>
+        </div>
+        <div class="channel-copy">
+          <span class="eyebrow">NO YOUTUBE</span>
+          <h3>Python com Thalyson</h3>
+          <p>Um espaço para aprender e trocar ideias sobre tecnologia. Me acompanhe também por lá.</p>
+          <span class="text-link">Assistir aos vídeos <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
     </section>
   </main>
-  <footer class="container footer"><div><a class="brand" href="#inicio" aria-label="tw.tech, início">tw<span>.</span>tech</a><p>Da Amazônia, compartilhando conhecimento.</p></div><nav aria-label="Redes sociais"><a href="https://linkedin.com/in/thalysonwilker">LinkedIn ↗</a><a href="https://www.instagram.com/itkcah.py">Instagram ↗</a><a href="https://github.com/thalisonwilker">GitHub ↗</a></nav></footer>
+
+  <footer class="container footer">
+    <div>
+      <a class="brand" href="#inicio" aria-label="tw.tech, início">tw<span>.</span>tech</a>
+      <p>Da Amazônia, compartilhando conhecimento.</p>
+    </div>
+    <nav aria-label="Redes sociais">
+      <a href="https://linkedin.com/in/thalysonwilker" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+      <a href="https://www.instagram.com/itkcah.py" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+      <a href="https://github.com/thalisonwilker" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+    </nav>
+  </footer>
+
+  <script>
+    const MONTHS = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+    function fmtDate(iso) {
+      const [y, m, d] = iso.split('-');
+      return `${String(d).padStart(2,'0')} ${MONTHS[+m-1]} <span>${y}</span>`;
+    }
+    async function loadEvents() {
+      const list = document.getElementById('event-list');
+      try {
+        const res = await fetch('data/events.json');
+        if (!res.ok) throw new Error('fetch failed');
+        const events = await res.json();
+        list.innerHTML = events.map((e, i) => `
+          <article class="event" role="listitem" itemscope itemtype="https://schema.org/Event">
+            <time datetime="${e.date}">${fmtDate(e.date)}</time>
+            <div>
+              <span class="tag">${e.type}</span>
+              <h3 itemprop="name">${e.title}</h3>
+              <p itemprop="description">${e.description}</p>
+              <p class="location" itemprop="location">${e.location}</p>
+            </div>
+            <span class="event-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span>
+          </article>`).join('');
+      } catch {
+        list.innerHTML = '<p style="color:var(--muted);padding:2rem 0">Não foi possível carregar os eventos.</p>';
+      }
+    }
+    loadEvents();
+  </script>
 </body>
 </html>
