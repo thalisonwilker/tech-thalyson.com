@@ -1,0 +1,47 @@
+[
+  {
+    "id": 5,
+    "title": "IA com breja 2026",
+    "date": "2026-04-25",
+    "location": "Black Dog Pub - Belém, PA",
+    "type": "Palestra",
+    "status": "completed",
+    "description": "Além do Chat: Aplicando IA para acelerar o desenvolvimento de APIs REST com framework Django"
+  },
+  {
+    "id": 4,
+    "title": "Flisol 2026-Belém",
+    "date": "2026-04-25",
+    "location": "Faci Wyden - Belém, PA",
+    "type": "Palestra",
+    "status": "completed",
+    "description": "Descubra o Langflow - Construindo IA de Forma Simples e Aberta"
+  },
+  {
+    "id": 3,
+    "title": "Python Norte 2025",
+    "date": "2025-07-20",
+    "location": "Unama Alcino Cacela - Belém, PA",
+    "type": "Organização",
+    "status": "completed",
+    "description": "A Maior conferência de Python do Norte do Brasil"
+  },
+  {
+    "id": 2,
+    "title": "DevOpsDay Belém 2025",
+    "date": "2025-06-07",
+    "location": "Unama Alcino Cacela - Belém, PA",
+    "type": "Organização",
+    "status": "completed",
+    "description": "DevOpsDays Belém - 07 de Junho de 2025!"
+  },
+  {
+    "id": 1,
+    "title": "Python Brasil",
+    "date": "2024-10-16",
+    "location": "Edificio Bolsa do Rio - Rio de Janeiro, RJ",
+    "type": "Participação",
+    "status": "completed",
+    "description": "Minha primeira participação na Python Brasil, a maior conferência de Python do Brasil!"
+  }
+]
