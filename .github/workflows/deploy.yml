@@ -18,13 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Build Docker image
-        run: docker build --tag tw-tech:ci .
+        run: docker build --tag thalyson-tech:ci .
       - name: Smoke-test health endpoint
         run: |
-          docker run -d --name tw-ci -p 8080:8080 tw-tech:ci
+          docker run -d --name thalyson-ci -p 8080:8080 thalyson-tech:ci
           sleep 2
           curl -sf http://localhost:8080/healthz
-          docker rm -f tw-ci
+          docker rm -f thalyson-ci
 
   deploy:
     name: Deploy to Fly.io

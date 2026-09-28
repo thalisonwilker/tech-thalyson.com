@@ -21,7 +21,7 @@ function get(path, { host = 'tech.thalyson.com', method = 'GET' } = {}) {
 test('serves the built site on the official domain', async () => {
   const response = await get('/');
   assert.equal(response.status, 200);
-  assert.match(response.body, /<title>tw.tech/);
+  assert.match(response.body, /<title>thalyson.tech/);
   assert.match(response.headers['content-security-policy'], /frame-ancestors 'none'/);
 });
 test('rejects default Fly hostname and arbitrary hosts', async () => {

@@ -1,4 +1,4 @@
-# tw.tech — Thalyson Wilker
+# thalyson.tech — Thalyson Wilker
 
 Site estático, responsivo e sem dependências de execução. Inspirado no projeto `thalisonwilker`, com os cinco eventos e o endereço do canal presentes na referência.
 

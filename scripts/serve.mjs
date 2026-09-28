@@ -8,7 +8,7 @@ const server = createSiteServer({
   allowedHost: production ? (process.env.PUBLIC_HOST || 'tech.thalyson.com') : undefined,
 });
 
-server.listen(port, host, () => console.log(`tw.tech escutando em ${host}:${port}`));
+server.listen(port, host, () => console.log(`thalyson.tech escutando em ${host}:${port}`));
 for (const signal of ['SIGTERM', 'SIGINT']) {
   process.on(signal, () => {
     server.close(() => process.exit(0));
