@@ -5,6 +5,7 @@ import { resolve, extname, sep } from 'node:path';
 const types = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
   '.jpg': 'image/jpeg',
   '.svg': 'image/svg+xml',
   '.txt': 'text/plain; charset=utf-8',
@@ -18,7 +19,7 @@ export function createSiteServer({ root = 'dist', allowedHost } = {}) {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
     res.setHeader('X-Frame-Options', 'DENY');
-    res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'");
+    res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'");
     const respond = (code, message) => {
       res.writeHead(code, { 'Content-Type': 'text/plain; charset=utf-8' });
       res.end(req.method === 'HEAD' ? undefined : message);
@@ -39,7 +40,7 @@ export function createSiteServer({ root = 'dist', allowedHost } = {}) {
 
     if (pathname === '/') pathname = '/index.html';
     const file = resolve(directory, '.' + pathname);
-    if ((!pages.has(pathname) && !pathname.startsWith('/assets/')) ||
+    if ((!pages.has(pathname) && !pathname.startsWith('/assets/') && !pathname.startsWith('/data/')) ||
         !file.startsWith(directory + sep) || !types[extname(file)] || pathname.includes('..')) {
       return respond(404, 'Não encontrado');
     }
