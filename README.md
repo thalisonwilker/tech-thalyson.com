@@ -1,40 +1,127 @@
-# thalyson.tech — Thalyson Wilker
+# 💻 thalyson.tech — Thalyson Wilker
 
-Site estático, responsivo e sem dependências de execução. Inspirado no projeto `thalisonwilker`, com os cinco eventos e o endereço do canal presentes na referência.
+Site pessoal e portfólio profissional de Thalyson Wilker, reunindo apresentações em eventos, palestras técnicas e conteúdos em vídeo sobre tecnologia e engenharia de software.
 
-## Executar
+Seguindo a mesma arquitetura dos sites `python.thalyson.com` e `thalisonwilker`: estático, veloz, sem dependências externas de runtime e hospedado via GitHub Pages com domínio customizado.
 
-Com Node.js 22 ou superior: `npm run dev`. Abra http://localhost:3000.
+---
 
-## Publicar
+## 🚀 Executar Localmente
 
-`npm run build` gera `dist/`. `npm test` verifica o servidor de produção, domínio, arquivos públicos e health check após o build.
+Com Node.js 22 ou superior:
 
-O deploy usa Docker no Fly.io, na região São Paulo (`gru`), com uma máquina compartilhada de 256 MB. O endereço oficial é `https://tech.thalyson.com`.
+```bash
+npm run dev
+```
+
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
+
+---
+
+## 🐳 Executar via Docker
+
+Para rodar o contêiner localmente com Docker:
+
+```bash
+# Opção 1: Via npm scripts
+npm run docker:build
+npm run docker:run
+
+# Opção 2: Via Docker Compose
+docker compose up --build
+
+# Opção 3: Comando direto
+docker build -t tech-thalyson .
+docker run --rm -p 8080:8080 tech-thalyson
+```
+
+Acesse [http://localhost:8080](http://localhost:8080) e verifique a saúde em [http://localhost:8080/healthz](http://localhost:8080/healthz).
+
+---
+
+## 📦 Build e Testes
+
+Para gerar os arquivos estáticos de produção na pasta `dist/`:
+
+```bash
+npm run build
+```
+
+Para rodar a suíte de testes automatizados:
+
+```bash
+npm test
+```
+
+Os testes utilizam o test runner nativo do Node.js (`node:test`) e validam rotas, Content Security Policy, integridade de arquivos estáticos, dados em JSON e health check `/healthz`.
+
+---
+
+## ☁️ Publicar e Deploy (GitHub Pages)
+
+O deploy é automatizado diretamente pelo **GitHub Pages** utilizando o workflow em `.github/workflows/deploy.yml`.
+
+O endereço oficial configurado é `https://tech.thalyson.com` através do arquivo `CNAME`.
 
 ### GitHub Actions
 
-O workflow `.github/workflows/deploy.yml` faz build, testes e validação da imagem em pull requests e pushes na `main`. Após os checks, pushes na `main` publicam automaticamente no Fly. Também pode ser executado manualmente pela aba Actions.
+O workflow `.github/workflows/deploy.yml` executa automaticamente:
+1. Validação com Node.js 22 e instalação limpa de dependências (`npm ci`).
+2. Geração dos arquivos estáticos na pasta `dist/` (`npm run build`), incluindo páginas, estilos, assets, dados e `CNAME`.
+3. Execução da suíte de testes automatizados (`npm test`).
+4. Empacotamento do artefato e deploy oficial no GitHub Pages ao mesclar na branch `main`.
 
-O token deve existir apenas no secret `FLY_API_TOKEN` do GitHub. Nunca inclua credenciais nos arquivos ou commits. Para rotação, prefira um token de deploy restrito à aplicação.
+### Configuração no Repositório GitHub:
 
-### Configuração inicial do Fly e DNS
+Em **Settings > Pages** do repositório:
+- **Build and deployment > Source**: Selecione `GitHub Actions`.
+- O domínio personalizado `tech.thalyson.com` será gerenciado com HTTPS automático provido pelo GitHub.
 
-A aplicação configurada em `fly.toml` é `tech-thalyson-com`. Para uma conta nova, crie-a na organização desejada antes do primeiro deploy:
+---
 
-```sh
-fly apps create tech-thalyson-com --org SUA_ORGANIZACAO
-fly deploy --remote-only --ha=false
-fly certs add tech.thalyson.com
-fly certs check tech.thalyson.com
+## 🎨 Identidade Visual e Tipografia
+
+- **Cores principais**:
+  - Fundo Dark: `#101513`
+  - Texto Principal: `#f0f3ec`
+  - Texto Secundário (Muted): `#a2ada6`
+  - Accent / Destaque: `#b4e68a`
+  - Linhas e Bordas: `#303b33`
+- **Tipografia**:
+  - Títulos e Texto: *DM Sans*
+  - Código, Horários e Terminal: *IBM Plex Mono*
+
+---
+
+## 📁 Estrutura de Diretórios
+
 ```
-
-No provedor DNS, configure o registro `tech` usando o destino retornado por `fly certs add`. Se necessário, adicione o registro de validação informado pelo Fly. O certificado só será emitido após a validação DNS.
-
-O Fly mantém seu hostname padrão, mas o servidor retorna 404 para ele e outros hosts em produção. Apenas `tech.thalyson.com` serve o site. `/healthz` responde sem essa restrição para os checks internos. HTTPS é obrigatório no proxy do Fly.
-
-## Conteúdo
-
-Edite `index.html` para atualizar eventos, apresentação e links. `styles.css` contém a identidade visual. A foto original está em `assets/thalyson-evento.jpg`. `data/events.json` preserva os dados de referência importados; a página é HTML estático e não lê esse arquivo automaticamente.
-
-A seção de vídeos leva ao canal real no YouTube. Não foram inventados títulos, miniaturas ou links de vídeos individuais.
+tech-thalyson.com/
+├── .dockerignore
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── .gitignore
+├── CNAME
+├── Dockerfile
+├── README.md
+├── assets/
+│   ├── favicon.svg
+│   └── thalyson-evento.jpg
+├── data/
+│   └── events.json
+├── docker-compose.yml
+├── index.html
+├── nginx.conf
+├── package-lock.json
+├── package.json
+├── robots.txt
+├── scripts/
+│   ├── build.mjs
+│   ├── serve.mjs
+│   └── server.mjs
+├── sitemap.xml
+├── styles.css
+└── tests/
+    └── server.test.mjs
+```
